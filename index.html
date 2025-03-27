@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Railway Stations</title>
+    <title>Estações Ferroviárias</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./carousel.js" defer ></script>
-    <script src="./script.js" defer ></script>
+    <script src="./carousel.js" defer></script>
+    <script src="./script.js" defer></script>
 </head>
 <body>
-
-    <h1>Railway Stations Info</h1>
-
+    <header>
+        <div class="logo">
+            <img src="img/2875389.webp" alt="Logo da Plataforma">
+        </div>
+        <nav>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar">
+                <button onclick="fetchStations()">Pesquisar</button>
+            </div>
+        </nav>
+    </header>
+    
+    <h1>Estações Ferroviárias</h1>
+    <p class="date">06.03.25</p>
+    <p class="about">
+        <em>Você sabe o que é uma estação ferroviária?</em>
+        <br>
+        Uma estação ferroviária é uma infraestrutura onde trens param para embarque e desembarque de passageiros ou carga. Geralmente, ela conta com plataformas, bilheteiras, salas de espera e sinalizações para orientar os viajantes.
+    </p>
+    
     <!-- Carrossel de imagens -->
     <div class="carousel">
         <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
         <div class="carousel-images">
-            <img src="img/13-estacoes-de-trem-mais-bonitas-do-mundo47_AvSRydA.webp" class="slide active">
-            <img src="img/1estacaodaluz.webp" class="slide">
-            <img src="img/1.webp" class="slide">
+            <img src="img/1.webp" class="slide active">
+            <img src="img/13-estacoes-de-trem-mais-bonitas-do-mundo49.webp" class="slide">
+            <img src="img/13-estacoes-de-trem-mais-bonitas-do-mundo53.webp" class="slide">
             <img src="img/13-estacoes-de-trem-mais-bonitas-do-mundo59.webp" class="slide">
-            <img src="img/capa1.webp" class="slide">
+            <img src="img/13-estacoes-de-trem-mais-bonitas-do-mundo62.webp" class="slide">
         </div>
         <button class="next" onclick="changeSlide(1)">&#10095;</button>
         <div class="dots">
@@ -31,17 +48,8 @@
             <span class="dot" onclick="currentSlide(5)"></span>
         </div>
     </div>
-
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Pesquisar...">
-        <button onclick="fetchStations()">Pesquisar</button>
-    </div>
     
-    <button id="listStationsButton" onclick="fetchStations()">Estações ferroviárias por país</button>
-
     <h2>Estações</h2>
-    <div id="stations"></div>
-
-
+    <div id="stations" class="stations-container"></div>
 </body>
 </html>
