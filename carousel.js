@@ -1,5 +1,4 @@
 'user strict'
-
 document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
     const slides = document.querySelectorAll(".carousel .slide");
@@ -8,22 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
+            slide.style.display = i === index ? "block" : "none";
         });
+        currentIndex = index;
     }
 
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        showSlide(currentIndex);
+        showSlide((currentIndex + 1) % totalSlides);
     }
 
     function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        showSlide(currentIndex);
+        showSlide((currentIndex - 1 + totalSlides) % totalSlides);
     }
 
     function startAutoSlide() {
-        interval = setInterval(nextSlide, 2000); 
+        interval = setInterval(nextSlide, 3000); // A cada 3 segundos
     }
 
     function stopAutoSlide() {
@@ -35,28 +33,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".prev").addEventListener("click", function () {
         stopAutoSlide();
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        showSlide(currentIndex);
+        prevSlide();
         startAutoSlide();
     });
 
     document.querySelector(".next").addEventListener("click", function () {
+        stopAutoSlide();
         nextSlide();
+        startAutoSlide();
     });
 
-    function nextSlide() {
-        showSlide((currentIndex + 1) % totalSlides);
-    }
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.display = i === index ? "block" : "none";
-        });
-        currentIndex = index;
-    }
-
-    document.querySelector(".carousel").addEventListener("mouseenter", stopAutoSlide);
-    document.querySelector(".carousel").addEventListener("mouseleave", startAutoSlide);
-
+    showSlide(0);
     startAutoSlide();
 });
+
