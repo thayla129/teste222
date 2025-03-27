@@ -7,7 +7,6 @@ body {
 
 header {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -18,7 +17,7 @@ header {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px; 
 }
 
 .logo {
@@ -27,8 +26,9 @@ header {
 }
 
 .logo-text {
-    font-size: 16px;
-    color: #666;
+    font-family: "NomeExatoDaFonte", sans-serif; 
+    font-size: 16px; 
+    color: #666; 
     font-weight: 300;
 }
 
@@ -36,8 +36,6 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
-    justify-content: flex-end;
 }
 
 .search-bar input {
@@ -55,6 +53,10 @@ header {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.search-bar button:hover {
+    background-color: #a3a3a3;
 }
 
 h1 {
@@ -78,7 +80,7 @@ h1 {
 
 .carousel {
     position: relative;
-    max-width: 90%;
+    max-width: 600px;
     margin: 20px auto;
     overflow: hidden;
     border-radius: 10px;
@@ -105,7 +107,7 @@ h1 {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
@@ -151,35 +153,31 @@ h2 {
 
 .stations-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
+.station {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
 
-    .search-bar {
-        width: 100%;
-        justify-content: center;
-        margin-top: 10px;
-    }
+.station:hover {
+    transform: scale(1.05);
+    background-color: #f4f4f4;
+}
 
-    .search-bar input {
-        width: 80%;
-    }
-
-    .carousel {
-        max-width: 100%;
-    }
-
-    .stations-container {
-        grid-template-columns: 1fr;
-    }
+.date {
+    text-align: left;
+    padding-left: 40px;
+    font-size: 14px;
+    color: #666;
 }
